@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>~</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Fira+Code&display=swap" rel="stylesheet">
+    
+    <!-- We will load the Tesseract.js library for OCR -->
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-window">
+        
+        <header class="window-header">
+            <div class="tab-container">
+                <button class="tab-link active" onclick="openTab(event, 'Home')">Home</button>
+                <button class="tab-link" onclick="openTab(event, 'MTG')">MTG</button>
+                <button class="tab-link" onclick="openTab(event, 'Other')">Other</button>
+            </div>
+        </header>
+        
+        <main class="content-area">
+
+            <div class="left-panel">
+                <div id="Home" class="tab-content" style="display:block;">
+                    <h2 class="retro-heading">WELCOME :P</h2>
+                    <p>This is the personal website and project hub. Check out the MTG tab for the card scanner project.</p>
+                </div>
+
+                <div id="MTG" class="tab-content">
+                    <h2 class="retro-heading">MTG SCANNER</h2>
+                    <div id="scanner-ui">
+                        <div id="video-container">
+                            <video id="video-feed" playsinline autoplay muted></video>
+                            <div id="video-overlay">
+                                <div class="card-outline"></div>
+                                <p class="overlay-text">Align Card Name Here</p>
+                            </div>
+                        </div>
+                        <div id="controls">
+                           <button id="start-camera-btn" class="action-btn">Start Camera</button>
+                           <button id="scan-btn" class="action-btn" disabled>Scan Card</button>
+                        </div>
+                        <div id="status-messages">
+                            <p id="status-text">Status: Idle</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="Other" class="tab-content">
+                    <h2 class="retro-heading">OTHER PROJECTS</h2>
+                    <p>Future home for other cool things, maybe leveraging that Raspberry Pi 5...</p>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <h3 class="panel-heading">Scanned Collection</h3>
+                <div id="collection-list">
+                    <!-- Scanned cards will appear here -->
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="mtg-scanner.js"></script>
+
+</body>
+</html>
